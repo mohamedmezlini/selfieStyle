@@ -1,0 +1,175 @@
+{#
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_event_edit' %}
+
+{% block main %}
+    <h1>{{ 'title.edit_event'|trans({'%id%': event.id}) }}</h1>
+
+    {{ include('admin/page/_form.html.twig', {
+        form: edit_form,
+        button_label: 'action.save'|trans,
+        include_back_to_home_link: true,
+    }, with_context = false) }}
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section actions">
+        {{ include('admin/page/_form.html.twig', {
+            form: delete_form,
+            button_label: 'action.delete_event'|trans,
+            button_css: 'btn btn-lg btn-block btn-danger',
+            show_confirmation: true,
+        }, with_context = false) }}
+    </div>
+
+    {{ parent() }}
+
+    {{ show_source_code(_self) }}
+{% endblock %}
+
+
+
+
+
+
+
+
+{#
+{% extends 'base.html.twig' %}
+
+{% block body_id 'blog_post_show' %}
+
+{% block main %}
+    <h1>{{ event.title }}</h1>
+
+    {{ gpage.content|md2html }}
+
+    
+{% endblock %}
+
+#}
+
+
+
+
+
+
+
+{% include 'admin/page/head.html.twig' %}
+
+
+{% include 'admin/page/nav.html.twig' %}
+
+
+
+
+
+<div class="ans dj" style="background-image: url(/selfiestyle/web/images/products/{{ event.imageName }} ");>
+  <div class="by">
+    <div class="ant">
+      <h3 class="anv">{{ event.title }}</h3>
+      <p class="anu">
+       {{ event.summary }}
+      </p>
+    </div>
+  </div>
+
+  <nav class="anw">
+    <ul class="nav ol">
+      <li class="active">
+        <a href="#">Photos</a>
+      </li>
+      <li>
+        <a href="#">Others</a>
+      </li>
+      <li>
+        <a href="#">Anothers</a>
+
+
+
+    
+
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<div class="by amt">
+  <div class="gc">
+  <div class="gn">
+  </div>
+  <div class="gz">
+
+    <h1>{{ 'title.edit_event'|trans({'%id%': event.id}) }}</h1>
+
+    {{ include('admin/event/_form.html.twig', {
+        form: edit_form,
+        button_label: 'action.save'|trans,
+        include_back_to_home_link: true,
+    }, with_context = false) }}
+
+
+</div>
+<div class="gn">
+  
+
+       {{ include('admin/event/_form.html.twig', {
+            form: delete_form,
+            button_label: 'action.delete_gpage'|trans,
+            button_css: 'btn btn-lg btn-block btn-danger pull-right',
+            show_confirmation: true,
+        }, with_context = false) }}
+   </div>
+</div>
+</div>
+
+
+
+
+<div class="by alx" data-grid="images"><div style="margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom;">
+    
+  
+  </div><div style="margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom;">
+    <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_17.jpg') }}" style="width: 253px; height: 254px;">
+  </div><div style="margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom;">
+    <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_18.jpg') }}" style="width: 253px; height: 254px;">
+  </div><div style="margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom;">
+    <img data-width="640" data-height="400" data-action="zoom" src="{{ asset('img/instagram_1.jpg') }}" style="width: 405px; height: 254px;">
+  </div><div style="margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom;">
+    <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_2.jpg') }}" style="width: 255px; height: 254px;">
+  </div></div>
+
+
+        {% block javascripts %}
+            
+    <script src="{{ asset('js/app/jquery1.min.js') }}"></script>
+    <script src="{{ asset('js/app/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app/chart.js') }}"></script>
+    <script src="{{ asset('js/app/toolkit.js') }}"></script>
+    <script src="{{ asset('js/app/application.js') }}"></script>
+    
+
+    <script>
+      // execute/clear BS loaders for docs
+      $(function(){
+        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+          while(BS.loader.length){(BS.loader.pop())()}
+        }
+      })
+    </script>
+        {% endblock %}
+
+
+
+
+  
+
+
+</body></html>

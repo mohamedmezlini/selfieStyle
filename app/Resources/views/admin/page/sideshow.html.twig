@@ -1,0 +1,104 @@
+{% block side %}
+    <div class="gn">
+      <div class="qv rc aog alu">
+        <div class="qx" style="background-image: url('/selfiestyle/web/images/products/{{ gpage.imageNameProfil }}' ; )") ></div>
+        <div class="qw dj">
+          <a href="#">
+            <img class="aoh" src="/selfiestyle/web/images/products/{{ gpage.imageName }}">
+          </a>
+
+          <h5 class="qy">
+            <a class="aku" href="profile/index.html">{{ gpage.title}} </a>
+          </h5>
+
+          <p class="alu">{{ gpage.summary}} </p>
+
+          <ul class="aoi">
+            <li class="aoj">
+              <a href="#userModal" class="aku" data-toggle="modal">
+                Abonnés
+                <h5 class="ali">12M</h5>
+              </a>
+            </li>
+
+            <li class="aoj">
+              <a href="#userModal" class="aku" data-toggle="modal">
+                Enemies
+                <h5 class="ali">1</h5>
+              </a>
+            </li>
+          </ul>
+          <ul class="aoi">
+            <li>
+              <h3 class="ald"> <small>· <a href="{{ path('admin_gpage_edit', { id: gpage.id }) }}">
+            <i class="fa fa-edit" aria-hidden="true"></i> {{ 'action.edit_contents'|trans }}
+        </a></a></small></h3>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+
+
+
+<!--  ********************************** les pages les plus récent *********************  -->
+
+      <div class="qv rc sm sp">
+        <div class="qw">
+          <h5 class="ald">{{ 'label.recentpage'|trans }} </h5>
+          <ul class="eb tb">
+           
+            
+         {% set compteur = 1 %}
+        {% for gpage in gpages  %}
+            {% if compteur <5 %} 
+              <li><span class="dp h xh all"></span>
+                  
+                        <a href="{{ path('blog_gpage', { slug: gpage.slug }) }}">
+                            {{ gpage.title }}
+                        </a>
+                  
+                    </li>
+              {% set compteur = compteur+1 %}
+               
+               {% endif  %}
+            {% else %}
+            <li>
+                <div class="well">{{ 'gpage.no_gpages_found'|trans }}</div>
+                </li>
+            {% endfor %}
+
+
+     </ul>
+        </div>
+      </div>
+
+
+
+<!--  **********************************  *********************  -->
+
+
+
+       <div class="qv rc sm sp">
+        <div class="qw">
+          <h5 class="ald">Photos <small>· <a href="#">Edit</a></small></h5>
+          <div data-grid="images" data-target-height="150"><div style="margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom;">
+              <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_5.jpg') }}" style="width: 117px; height: 118px;" class="">
+            </div><div style="margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom;">
+              <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_6.jpg') }}" style="width: 117px; height: 118px;" class="">
+            </div><div style="margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom;">
+              <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_7.jpg') }}" style="width: 117px; height: 118px;" class="">
+            </div><div style="margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom;">
+              <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_8.jpg') }}" style="width: 117px; height: 118px;" class="">
+            </div><div style="margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom;">
+              <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_9.jpg') }}" style="width: 117px; height: 118px;" class="">
+            </div><div style="margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom;">
+              <img data-width="640" data-height="640" data-action="zoom" src="{{ asset('img/instagram_10.jpg') }}" style="width: 117px; height: 118px;" class="">
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

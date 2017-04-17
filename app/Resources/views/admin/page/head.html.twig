@@ -1,0 +1,50 @@
+
+
+     {% block head %}
+
+<html lang="{{ app.request.locale }}"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>
+    
+        Home · Application theme · Official Bootstrap Themes
+      
+    </title>
+
+            <link rel="stylesheet" href="{{ asset('css/ptoolkit.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-flatly-3.3.7.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/font-awesome-4.6.3.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/font-lato.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/highlight-solarized-light.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+            <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="{{ asset('css/toolkit.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/application.css') }}">
+        
+
+    <style>
+      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+      /* this chunk of css is not part of the toolkit :) */
+      body {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+      }
+    </style>
+
+  </head>
+
+
+<body class="ang">
+  
+
+
+<div class="anq" id="app-growl"></div>
+
+{% endblock  %}

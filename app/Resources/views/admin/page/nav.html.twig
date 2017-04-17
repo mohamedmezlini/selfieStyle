@@ -1,0 +1,93 @@
+{% block nav %}
+<nav class="ck pc os app-navbar">
+  <div class="by">
+    <div class="or">
+      <button type="button" class="ou collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
+        <span class="cv">Toggle navigation</span>
+        <span class="ov"></span>
+        <span class="ov"></span>
+        <span class="ov"></span>
+      </button>
+      <a class="e" href="index.html">
+        <img src="{{ asset('img/brand-white.png') }}" alt="brand">
+      </a>
+    </div>
+    <div class="f collapse" id="navbar-collapse-main">
+
+        <ul class="nav navbar-nav ss">
+          <li class="active">
+            <a href="{{ path('admin_gpage') }}">Home</a>
+          </li>
+          <li>
+            <a href="{{ path('admin_gpage') }}">Profile</a>
+          </li>
+          <li>
+            <a  href="#">Messages</a>
+          </li>
+          
+        </ul>
+
+        <ul class="nav navbar-nav og ale ss">
+          <li>
+            <a class="g" href="notifications/index.html">
+              <span class="h ws"></span>
+            </a>
+          </li>
+
+
+        {% if app.user %}
+            <li>
+                <a class='g' href="{{ path('security_logout') }}">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'menu.logout'|trans }}
+                </a>
+            </li>
+        {% else  %}
+            <li>
+                <a  class='g'  href="{{ path('security_login') }}">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> {{ 'menu.login'|trans }}
+                </a>
+            </li>
+        {% endif %}
+
+
+
+          <li>
+            <button class="cg fm ox anl" data-toggle="popover" data-original-title="" title="">
+              <img class="cu" src="{{ asset('img/avatar-dhg.png') }}">
+            </button>
+          </li>
+           <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="locales">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+                  <span class="caret"></span>
+                  <span class="sr-only">{{ 'menu.choose_language'|trans }}</span>
+              </a>
+              <ul class="dropdown-menu locales" role="menu" aria-labelledby="locales">
+                  {% for locale in locales() %}
+                      <li {% if app.request.locale == locale.code %}aria-checked="true" class="active"{%else%}aria-checked="false"{% endif %} role="menuitem"><a href="{{ path(app.request.get('_route', 'blog_index'), app.request.get('_route_params', [])|merge({ _locale: locale.code })) }}">{{ locale.name|capitalize }}</a></li>
+                  {% endfor %}
+              </ul>
+          </li>
+        </ul>
+
+        <form class="ow og i" role="search">
+          <div class="et">
+            <input type="text" class="form-control" data-action="grow" placeholder="Search">
+          </div>
+        </form>
+
+        <ul class="nav navbar-nav st su sv">
+          <li><a href="{{ path('admin_gpage') }}">Home</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Messages</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav hidden">
+          <li><a href="login/index.html">Logout</a></li>
+        </ul>
+      </div>
+  </div>
+</nav>
+
+{% endblock %}

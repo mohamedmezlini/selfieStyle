@@ -1,0 +1,56 @@
+/*----------------------------------------------------------------
+* spécification 
+*  ----------------------------------- Gestion des pages ------------------------ 
+*   une page peut partager des infortmations 
+*  ses parametres  (nom de la page, type de la page, date de création, )
+*  publier des posts 
+*  changer ses informations 
+*  Avoir plusieur commentaires 
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  --------------------------------- Gestion des événements ------------------
+*  Ses parametres    (nom de la page, type de la page, date de création, date de l'événement )
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*  
+*
+*/ 

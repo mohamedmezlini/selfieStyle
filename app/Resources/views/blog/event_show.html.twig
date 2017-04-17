@@ -1,0 +1,265 @@
+
+
+
+
+
+
+{% include 'admin/page/head.html.twig' %}
+
+
+{% include 'admin/page/nav.html.twig' %}
+
+
+
+
+
+<!-- -->
+
+
+<div class="by amt">
+  <div class="gc">
+
+    <!--  **************************** bloc left bar  ************************ -->
+
+
+
+
+    {% include 'admin/page/side.html.twig' %}
+
+
+
+
+
+
+
+
+
+
+    <!--  **************************** bloc main ************************ -->
+
+{% set comteur =1 %}
+
+    <div class="gz">
+      <ul class="ca qo anx">
+
+
+
+
+ <div class="qv rc aog alu">
+        <div class="qx" style="background-image: url('/selfiestyle/web/images/products/{{ event.imageName }}' ; )") ></div>
+        <div class="qw dj">
+          
+
+          <h5 class="qy">
+            <a class="aku" href="profile/index.html">{{ event.title}} </a>
+          </h5>
+
+          <p class="alu">{{ event.summary}} </p>
+
+
+          <ul class="aoi">
+            <li class="aoj">
+              <a href="#userModal" class="aku" data-toggle="modal">
+                Commence 
+                <h5 class="ali"> <time> {{ event.publishedAt|date("m/d/Y")}} </time></h5>
+              </a>
+            </li>
+
+            <li class="aoj">
+              <a href="#userModal" class="aku" data-toggle="modal">
+                Jusqu'à 
+                <h5 class="ali"><time>{{ event.dateOfEvent|date("m/d/Y")}}</time></h5>
+              </a>
+            </li>
+          </ul>
+          <ul class="aoi">
+            <li>
+              <h3 class="ald"> <small>· <a href="{{ path('admin_event_edit', { id: event.id }) }}">
+            <i class="fa fa-edit" aria-hidden="true"></i> {{ 'action.edit_contents'|trans }}
+        </a></a></small></h3>
+            </li>
+          </ul>
+
+
+          </div>
+          </div>
+
+
+
+        </li>
+
+
+
+        <li class="qf b aml">
+          <div class="">
+
+
+
+    {{ form_start(form) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.imageFile) }}
+
+        <input type="submit" value="Publier " class="btn btn-primary pull-right" />
+        <br>
+
+    {{ form_end(form) }}
+
+          </div>
+        </li>
+
+
+        
+
+
+
+
+      {% for post in event.posts %}
+        <li class="qf b aml">
+          <a class="qj" href="#">
+            <img class="qh cu" src="{{ asset('img/avatar-dhg.png') }}">
+          </a>
+          <div class="qg">
+            <div class="qn">
+              <small class="eg dp">4 min</small>
+              <h5>{{ post.authorEmail }}</h5>
+            </div>
+
+            <p>
+              {{ post.content }}
+            </p>
+
+
+            <div class="any" data-grid="images"><div style="display: inline-block; margin-bottom: 10px; margin-right: 10px; vertical-align: bottom;">
+                <img class="img-hover grayscale" data-toggle="modal" data-target=".bs-exampl-modal-lg{{ post.imageName }}{{  comteur }}" data-action="zoom" data-width="1050" data-height="700" src="/selfiestyle/web/images/products/{{ post.imageName }}" style="width: 273px; height: 183px;" class="">
+
+<!--
+
+<div class="modal fade bs-exampl-modal-lg{{ post.imageName }}{{  comteur }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <img  src="/selfiestyle/web/images/products/{{ post.imageName }}" style="width: 200%; height: 183px;" class="">
+    </div>
+  </div>
+</div>
+
+--> 
+      {% set comteur = comteur+1 %}
+
+              </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 0px; vertical-align: bottom;">
+                <img data-action="zoom" data-width="640" data-height="640" src="{{ asset('img/instagram_1.jpg') }}" style="width: 183px; height: 183px;" class="">
+              </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 10px; vertical-align: bottom;">
+                <img data-action="zoom" data-width="640" data-height="640" src="{{ asset('img/instagram_13.jpg') }}" style="width: 182px; height: 183px;" class="">
+              </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 0px; vertical-align: bottom;">
+                <img data-action="zoom" data-width="1048" data-height="700" src="{{ asset('img/unsplash_2.jpg') }}" style="width: 274px; height: 183px;" class="">
+              </div></div>
+
+
+
+               {{ render(controller('AppBundle:Blog:commentForm', { 'id': post.id })) }}
+        
+       
+            <ul class="qo alm">
+              {% for comment in post.comments %}
+
+              <li class="qf">
+                <a class="qj" href="#">
+                  <img class="qh cu" src="{{ asset('img/avatar-fat.jpg') }}">
+                </a>
+                <div class="qg">
+                  <strong>{{ comment.authorEmail }}</strong>
+                   {{ comment.content|md2html }}
+                </div>
+              </li>
+              
+
+            {% endfor %}
+
+
+
+            </ul>
+
+
+
+
+          </div>
+        </li>
+
+     {% endfor %}
+
+
+
+      </ul>
+    </div>
+    
+    
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--  **************************** bloc aside  ************************ -->
+
+
+    {% include 'admin/page/aside.html.twig' %}
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {% block javascripts %}
+            
+    <script src="{{ asset('js/app/jquery1.min.js') }}"></script>
+    <script src="{{ asset('js/app/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app/chart.js') }}"></script>
+    <script src="{{ asset('js/app/toolkit.js') }}"></script>
+    <script src="{{ asset('js/app/application.js') }}"></script>
+    
+
+    <script>
+      // execute/clear BS loaders for docs
+      $(function(){
+        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+          while(BS.loader.length){(BS.loader.pop())()}
+        }
+      })
+    </script>
+        {% endblock %}
+
+
+  
+
+
+</body></html>

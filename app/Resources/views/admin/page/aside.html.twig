@@ -1,0 +1,94 @@
+    {% block aside %}
+
+
+    <div class="gn">
+      <div class="alert pv alert-dismissible ss" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <a class="pr" href="#">{{ 'aside.visit'|trans }} your profile!</a> Check your self, you aren't looking too good.
+      </div>
+
+      <div class="qv rc alu ss">
+        <div class="qw">
+          {% set compteur = 1 %}
+          <h3 class="ald">{{ 'label.recentevent'|trans }} </h3>
+          <ul class="eb tb">
+
+          {% for event in events  %}
+              {% if compteur <5 %} 
+                <li><span class="dp h xh all"></span>
+                    <a href="{{ path('blog_event', { slug: event.slug }) }}">
+                       {{ event.title }}
+                        </a>
+                    
+                      </li>
+                {% set compteur = compteur+1 %}
+                 
+                 {% endif  %}
+              {% else %}
+              <li>
+                  <div class="well">{{ 'event.no_events_found'|trans }}</div>
+                  </li>
+              {% endfor %}
+          <ul>
+        </div>
+      </div>
+
+      <div class="qv rc alu ss">
+        <div class="qw">
+        <h5 class="ald">Likes <small>· <a href="#">{{ 'aside.viewall'|trans }}</a></small></h5>
+        <ul class="qo anx">
+          <li class="qf alm">
+            <a class="qj" href="#">
+              <img class="qh cu" src="{{ asset('img/avatar-fat.jpg') }}">
+            </a>
+            <div class="qg">
+              <strong>Maissa Tayachi</strong> @fat
+              <div class="aoa">
+                <button class="cg ts fx">
+                  <span class="h vc"></span> Follow</button>
+              </div>
+            </div>
+          </li>
+           <li class="qf">
+            <a class="qj" href="#">
+              <img class="qh cu" src="{{ asset('img/avatar-mdo.png') }}">
+            </a>
+            <div class="qg">
+              <strong>Safa Zeddini</strong> @mdo
+              <div class="aoa">
+                <button class="cg ts fx">
+                  <span class="h vc"></span> Follow</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+        </div>
+        <div class="qz">
+          SelfieStyle is the Futur
+        </div>
+      </div>
+
+      <div class="qv rc aok">
+        <div class="qw">
+          © 2016 selfieStyle
+
+          <a href="#">About</a>
+          <a href="#">Help</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+          <a href="#">Ads </a>
+
+          <a href="#">info</a>
+          <a href="#">Brand</a>
+          <a href="#">Blog</a>
+          <a href="#">Status</a>
+          <a href="#">Apps</a>
+          <a href="#">Jobs</a>
+          <a href="#">Advertise</a>
+        </div>
+      </div>
+    </div>
+
+    
+{% endblock %}

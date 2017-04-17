@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'homepage' %}
+
+{#
+    the homepage is a special page which displays neither a header nor a footer.
+    this is done with the 'trick' of defining empty Twig blocks without any content
+#}
+
+{% block body %}
+    <div class="row ">
+        <div class="page-header jumbotron " style="background-color: rgba(236, 240, 241, 0.54); color: #1cbd9e;">
+            <h1>{{ 'title.homepage'|trans|raw }}</h1>
+        </div>
+     </div >
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            
+                 <div class="well">
+                <form action="{{ path('security_login') }}" method="post">
+                    <fieldset>
+                        <legend><i class="fa fa-lock" aria-hidden="true"></i> {{ 'title.login'|trans }}</legend>
+                        <div class="form-group">
+                            <label for="username">{{ 'label.username'|trans }}</label>
+                            <input type="text" id="username" name="_username" value="" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">{{ 'label.password'|trans }}</label>
+                            <input type="password" id="password" name="_password" class="form-control" />
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> {{ 'action.sign_in'|trans }}
+                        </button>
+                    </fieldset>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function() {
+            var usernameEl = $('#username');
+            var passwordEl = $('#password');
+            // in a real application, hardcoding the user/password would be idiotic
+            // but for the demo application it's very convenient to do so
+            if (!usernameEl.val() && !passwordEl.val()) {
+                usernameEl.val('tayachi_admin');
+                passwordEl.val('kitten');
+            }
+        });
+    </script>
+{% endblock %}
